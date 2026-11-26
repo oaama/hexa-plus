@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Sparkles, CheckCircle2, Lightbulb, Rocket, ShieldCheck, Star } from "lucide-react";
 import { publicData } from "@/lib/public-data-ar";
 export const metadata = { title: "الأسئلة الشائعة" };
 export default async function Page() {
@@ -16,6 +17,7 @@ export default async function Page() {
       ) : (
         <div className="editorial-grid">
           <section className="detail-panel">
+            <span className="panel-icon"><Sparkles size={22} /></span>
             <h2> ماذا تقدم هيكسا بلس؟ </h2>
             <p>
               {" "}
@@ -24,6 +26,7 @@ export default async function Page() {
             </p>
           </section>
           <section className="detail-panel">
+            <span className="panel-icon"><CheckCircle2 size={22} /></span>
             <h2> هل يمكن طلب خدمة واحدة فقط؟ </h2>
             <p>
               {" "}
@@ -32,6 +35,7 @@ export default async function Page() {
             </p>
           </section>
           <section className="detail-panel">
+            <span className="panel-icon"><Lightbulb size={22} /></span>
             <h2> كم تبلغ تكلفة مشروعي؟ </h2>
             <p>
               {" "}
@@ -40,6 +44,7 @@ export default async function Page() {
             </p>
           </section>
           <section className="detail-panel">
+            <span className="panel-icon"><Rocket size={22} /></span>
             <h2> ما مدة تنفيذ المشروع؟ </h2>
             <p>
               {" "}
@@ -48,6 +53,7 @@ export default async function Page() {
             </p>
           </section>
           <section className="detail-panel">
+            <span className="panel-icon"><ShieldCheck size={22} /></span>
             <h2> أين مقر هيكسا بلس؟ </h2>
             <p>
               {" "}
@@ -56,6 +62,7 @@ export default async function Page() {
             </p>
           </section>
           <section className="detail-panel">
+            <span className="panel-icon"><Star size={22} /></span>
             <h2> هل تُنشر المواد والإعلانات تلقائيًا؟ </h2>
             <p>
               {" "}

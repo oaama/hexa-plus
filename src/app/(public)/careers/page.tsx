@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Sparkles, CheckCircle2, Lightbulb, Rocket, ShieldCheck, Star } from "lucide-react";
 import { publicData } from "@/lib/public-data";
 export const metadata = { title: "Careers" };
 export default async function Page() {
@@ -17,6 +18,7 @@ export default async function Page() {
       ) : (
         <div className="editorial-grid">
           <section className="detail-panel">
+            <span className="panel-icon"><Sparkles size={22} /></span>
             <h2>Open roles</h2>
             <p>
               No open roles are currently listed on this website. We do not
@@ -24,6 +26,7 @@ export default async function Page() {
             </p>
           </section>
           <section className="detail-panel">
+            <span className="panel-icon"><CheckCircle2 size={22} /></span>
             <h2>Introduce yourself</h2>
             <p>
               Use our contact form and select Careers / introduction. Tell us

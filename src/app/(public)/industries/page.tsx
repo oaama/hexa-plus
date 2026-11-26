@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Sparkles, CheckCircle2, Lightbulb, Rocket, ShieldCheck, Star } from "lucide-react";
 import { publicData } from "@/lib/public-data";
 export const metadata = { title: "Industries" };
 export default async function Page() {
@@ -16,6 +17,7 @@ export default async function Page() {
       ) : (
         <div className="editorial-grid">
           <section className="detail-panel">
+            <span className="panel-icon"><Sparkles size={22} /></span>
             <h2>Retail & commerce</h2>
             <p>
               Digital storefronts, customer journeys and marketing that connect
@@ -23,6 +25,7 @@ export default async function Page() {
             </p>
           </section>
           <section className="detail-panel">
+            <span className="panel-icon"><CheckCircle2 size={22} /></span>
             <h2>Professional services</h2>
             <p>
               Clear positioning, credible digital presence and better inquiry
@@ -30,6 +33,7 @@ export default async function Page() {
             </p>
           </section>
           <section className="detail-panel">
+            <span className="panel-icon"><Lightbulb size={22} /></span>
             <h2>Education & training</h2>
             <p>
               Accessible experiences, useful content and systems that support
@@ -37,6 +41,7 @@ export default async function Page() {
             </p>
           </section>
           <section className="detail-panel">
+            <span className="panel-icon"><Rocket size={22} /></span>
             <h2>Growing businesses</h2>
             <p>
               Operational systems, brand foundations and practical plans for the

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Sparkles, CheckCircle2, Lightbulb, Rocket, ShieldCheck, Star } from "lucide-react";
 import { publicData } from "@/lib/public-data";
 export const metadata = { title: "FAQ" };
 export default async function Page() {
@@ -15,6 +16,7 @@ export default async function Page() {
       ) : (
         <div className="editorial-grid">
           <section className="detail-panel">
+            <span className="panel-icon"><Sparkles size={22} /></span>
             <h2>What does HEXA PLUS do?</h2>
             <p>
               We combine software development, business systems, digital
@@ -22,6 +24,7 @@ export default async function Page() {
             </p>
           </section>
           <section className="detail-panel">
+            <span className="panel-icon"><CheckCircle2 size={22} /></span>
             <h2>Can we work on only one service?</h2>
             <p>
               Yes. The right scope might be a focused service or a connected
@@ -29,6 +32,7 @@ export default async function Page() {
             </p>
           </section>
           <section className="detail-panel">
+            <span className="panel-icon"><Lightbulb size={22} /></span>
             <h2>How much will my project cost?</h2>
             <p>
               Cost depends on scope, complexity, delivery requirements and
@@ -37,6 +41,7 @@ export default async function Page() {
             </p>
           </section>
           <section className="detail-panel">
+            <span className="panel-icon"><Rocket size={22} /></span>
             <h2>How long does a project take?</h2>
             <p>
               We agree a realistic schedule after discovery. Timelines depend on
@@ -44,6 +49,7 @@ export default async function Page() {
             </p>
           </section>
           <section className="detail-panel">
+            <span className="panel-icon"><ShieldCheck size={22} /></span>
             <h2>Where are you based?</h2>
             <p>
               Minya, Egypt. Use the inquiry form to discuss your project and
@@ -51,6 +57,7 @@ export default async function Page() {
             </p>
           </section>
           <section className="detail-panel">
+            <span className="panel-icon"><Star size={22} /></span>
             <h2>Do you publish or run ads automatically?</h2>
             <p>
               No. Our internal marketing workspace records plans and results.

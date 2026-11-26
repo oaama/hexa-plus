@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Eye, Target, HeartHandshake, Compass, Layers3, Users } from "lucide-react";
 import { publicData } from "@/lib/public-data";
 export const metadata = { title: "About us" };
 export default async function Page() {
@@ -17,6 +18,7 @@ export default async function Page() {
       ) : (
         <div className="editorial-grid">
           <section className="detail-panel">
+            <span className="panel-icon"><Eye size={22} /></span>
             <h2>Our vision</h2>
             <p>
               Help businesses move forward with technology and communication
@@ -24,6 +26,7 @@ export default async function Page() {
             </p>
           </section>
           <section className="detail-panel">
+            <span className="panel-icon"><Target size={22} /></span>
             <h2>Our mission</h2>
             <p>
               Build considered digital products, business solutions and brand
@@ -31,6 +34,7 @@ export default async function Page() {
             </p>
           </section>
           <section className="detail-panel">
+            <span className="panel-icon"><HeartHandshake size={22} /></span>
             <h2>What matters to us</h2>
             <p>
               Clarity, thoughtful work, honest communication and long-term
@@ -38,6 +42,7 @@ export default async function Page() {
             </p>
           </section>
           <section className="detail-panel">
+            <span className="panel-icon"><Compass size={22} /></span>
             <h2>How we think</h2>
             <p>
               Start with the business. Understand the people. Choose the right
@@ -45,6 +50,7 @@ export default async function Page() {
             </p>
           </section>
           <section className="detail-panel">
+            <span className="panel-icon"><Layers3 size={22} /></span>
             <h2>Our capabilities</h2>
             <p>
               Software development, digital transformation, business systems,
@@ -53,6 +59,7 @@ export default async function Page() {
             </p>
           </section>
           <section className="detail-panel">
+            <span className="panel-icon"><Users size={22} /></span>
             <h2>Our team</h2>
             <p>
               A connected approach across development, design, marketing and

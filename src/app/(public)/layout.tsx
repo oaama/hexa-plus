@@ -4,6 +4,7 @@ import { SiteFooter as ArabicFooter } from "@/components/site-footer-ar";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { publicData } from "@/lib/public-data";
+import { ScrollReveal } from "@/components/scroll-reveal";
 export const dynamic = "force-dynamic";
 export default async function PublicLayout({
   children,
@@ -18,6 +19,7 @@ export default async function PublicLayout({
       dir={ar ? "rtl" : "ltr"}
       lang={ar ? "ar" : "en"}
     >
+      <ScrollReveal />
       <a className="skip-link" href="#main">
         {ar ? "انتقل إلى المحتوى" : "Skip to content"}
       </a>

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Sparkles, CheckCircle2, Lightbulb, Rocket, ShieldCheck, Star } from "lucide-react";
 import { publicData } from "@/lib/public-data-ar";
 export const metadata = { title: "انضم إلينا" };
 export default async function Page() {
@@ -17,6 +18,7 @@ export default async function Page() {
       ) : (
         <div className="editorial-grid">
           <section className="detail-panel">
+            <span className="panel-icon"><Sparkles size={22} /></span>
             <h2> الوظائف المتاحة </h2>
             <p>
               {" "}
@@ -25,6 +27,7 @@ export default async function Page() {
             </p>
           </section>
           <section className="detail-panel">
+            <span className="panel-icon"><CheckCircle2 size={22} /></span>
             <h2> عرّفنا بنفسك </h2>
             <p>
               {" "}
