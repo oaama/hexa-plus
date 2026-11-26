@@ -7,6 +7,7 @@ import {
   Megaphone,
 } from "lucide-react";
 import { mediaSource } from "@/lib/media";
+import { Reveal } from "@/components/reveal";
 
 type Project = {
   id: string;
@@ -107,7 +108,7 @@ export function ReferenceHome({
         <span className="rh-bubble rh-bubble-a" />
         <span className="rh-bubble rh-bubble-b" />
         <span className="rh-bubble rh-bubble-c" />
-        <div className="rh-hero-copy">
+        <Reveal className="rh-hero-copy" delay={0.05}>
           <h1>
             {customTitle || (
               <>
@@ -127,8 +128,8 @@ export function ReferenceHome({
           <Link href={href("/contact")} className="rh-pill-white">
             {t("Start your project", "ابدأ مشروعك")}
           </Link>
-        </div>
-        <div className="rh-hero-stage">
+        </Reveal>
+        <Reveal className="rh-hero-stage" delay={0.18}>
           <div className="rh-laptop">
             <div className="rh-laptop-screen">
               <img
@@ -151,13 +152,13 @@ export function ReferenceHome({
               <small>{t("websites, apps and platforms", "مواقع وتطبيقات ومنصات")}</small>
             </div>
           </div>
-        </div>
+        </Reveal>
                 <svg className="rh-wave" viewBox="0 0 1440 170" preserveAspectRatio="none" aria-hidden="true">
           <path d="M0 110 C220 10 520 10 760 80 C1000 150 1220 160 1440 60 L1440 170 L0 170Z" fill="#fff" />
         </svg>
       </section>
 
-      <section className="rh-section rh-what">
+      <Reveal className="rh-section rh-what">
         <div className="rh-head">
           <span className="rh-eyebrow">{t("What we do", "ماذا نقدم")}</span>
           <h2>{t("The complete digital solution", "الحل الرقمي المتكامل")}</h2>
@@ -173,9 +174,9 @@ export function ReferenceHome({
             </Link>
           ))}
         </div>
-      </section>
+      </Reveal>
 
-      <section className="rh-section rh-feature">
+      <Reveal className="rh-section rh-feature">
         <div className="rh-text">
           <span className="rh-eyebrow">{t("Websites", "المواقع")}</span>
           <h2>{t("Websites that look sharp and load fast", "مواقع بشكل احترافي وتحميل سريع")}</h2>
@@ -202,9 +203,9 @@ export function ReferenceHome({
           />
           <Chip title={t("Mraya Arts Center", "مركز مرايا للفنون")} sub={t("Live website", "موقع منشور")} />
         </div>
-      </section>
+      </Reveal>
 
-      <section className="rh-section rh-feature rh-reverse">
+      <Reveal className="rh-section rh-feature rh-reverse">
         <div className="rh-text">
           <span className="rh-eyebrow">{t("Apps & systems", "التطبيقات والأنظمة")}</span>
           <h2>{t("Apps and systems that run your business", "تطبيقات وأنظمة تدير نشاطك")}</h2>
@@ -231,9 +232,9 @@ export function ReferenceHome({
           />
           <Chip title={t("Matcha Café", "ماتشا كافيه")} sub={t("Digital menu app", "تطبيق منيو رقمي")} />
         </div>
-      </section>
+      </Reveal>
 
-      <section className="rh-section rh-work" id="selected-work">
+      <Reveal className="rh-section rh-work" id="selected-work">
         <div className="rh-head">
           <span className="rh-eyebrow">{t("Our work", "أعمالنا")}</span>
           <h2>{t("Projects we have built", "مشاريع نفذناها")}</h2>
@@ -270,14 +271,14 @@ export function ReferenceHome({
             {t("View all projects", "عرض كل المشاريع")}
           </Link>
         </div>
-      </section>
+      </Reveal>
 
-      <section className="rh-cta">
+      <Reveal className="rh-cta">
         <h2>{t("Have an idea? Let's make it real.", "عندك فكرة؟ خلّينا نحوّلها لواقع.")}</h2>
         <Link href={href("/contact")} className="rh-pill-white">
           {t("Talk to us", "تواصل معنا")}
         </Link>
-      </section>
+      </Reveal>
     </main>
   );
 }

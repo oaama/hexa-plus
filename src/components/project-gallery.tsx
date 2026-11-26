@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { mediaSource } from "@/lib/media";
+import { Reveal } from "@/components/reveal";
 import { useState } from "react";
 import { ArrowUpRight, Layers3 } from "lucide-react";
 type Project = {
@@ -48,17 +49,22 @@ export function ProjectGallery({ projects }: { projects: Project[] }) {
           {projects
             .filter((p) => filter === "All" || p.category === filter)
             .map((p, i) => (
+              <Reveal key={p.id} delay={Math.min(i * 0.07, 0.42)} y={30}>
               <Link
                 className="project-card"
                 href={"/portfolio/" + p.slug}
-                key={p.id}
               >
                 <div className="project-visual">
                   {p.thumbnail_url ? (
                     <img
                       src={mediaSource(p.thumbnail_url)}
                       alt={p.title}
-                      loading="lazy"
+                      loading={i < 2 ? "eager" : "lazy"}
+                      fetchPriority={i === 0 ? "high" : "auto"}
+                      ref={(el) => {
+                        if (el?.complete) el.classList.add("img-in");
+                      }}
+                      onLoad={(e) => e.currentTarget.classList.add("img-in")}
                     />
                   ) : (
                     <span className="project-monogram">
@@ -73,6 +79,7 @@ export function ProjectGallery({ projects }: { projects: Project[] }) {
                 <h3>{p.title}</h3>
                 <p>{p.description}</p>
               </Link>
+              </Reveal>
             ))}
         </div>
       )}
