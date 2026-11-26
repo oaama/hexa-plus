@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Sparkles, CheckCircle2, Lightbulb, Rocket, ShieldCheck, Star } from "lucide-react";
 import { publicData } from "@/lib/public-data-ar";
+import { SdlcFlow } from "@/components/sdlc-flow";
 export const metadata = { title: "طريقة عملنا" };
 export default async function Page() {
   const { settings } = await publicData();
@@ -50,6 +51,7 @@ export default async function Page() {
           </section>
         </div>
       )}
+      <SdlcFlow ar />
       <Link href="/ar/contact" className="primary-link">
         {" "}
         لنتحدث عن مشروعك ↖{" "}

@@ -2,6 +2,7 @@ import { mediaSource } from "@/lib/media";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { supabase, serviceClient } from "@/lib/supabase/server";
+import { SdlcFlow } from "@/components/sdlc-flow";
 import type { Metadata } from "next";
 export async function generateMetadata({
   params,
@@ -89,20 +90,22 @@ export default async function CaseStudy({
           alt={p.title}
         />
       )}
-      <div className="detail-columns">
+      <div className="detail-columns case-flow">
         {[
           ["The challenge", p.challenge],
           ["Our solution", p.solution],
           ["The outcome", p.results],
         ]
           .filter(([, v]) => v)
-          .map(([k, v]) => (
+          .map(([k, v], i) => (
             <section className="detail-panel" key={k}>
+              <span className="flow-num">{String(i + 1).padStart(2, "0")}</span>
               <h2>{k}</h2>
               <p>{v}</p>
             </section>
           ))}
       </div>
+      <SdlcFlow compact />
       <div className="case-meta">
         {p.services_provided && (
           <span>

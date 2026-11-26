@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Sparkles, CheckCircle2, Lightbulb, Rocket, ShieldCheck, Star } from "lucide-react";
 import { publicData } from "@/lib/public-data";
+import { SdlcFlow } from "@/components/sdlc-flow";
 export const metadata = { title: "Our process" };
 export default async function Page() {
   const { settings } = await publicData();
@@ -49,6 +50,7 @@ export default async function Page() {
           </section>
         </div>
       )}
+      <SdlcFlow />
       <Link href="/contact" className="primary-link">
         Start a conversation ↗
       </Link>

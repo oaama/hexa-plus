@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { publicData } from "@/lib/public-data";
+import { SdlcFlow } from "@/components/sdlc-flow";
 export const metadata = { title: "Services" };
 export default async function Services() {
   const { services } = await publicData();
@@ -45,6 +46,7 @@ export default async function Services() {
           </div>
         </section>
       ))}
+    <SdlcFlow />
     </main>
   );
 }

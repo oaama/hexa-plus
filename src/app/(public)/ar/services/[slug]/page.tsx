@@ -3,6 +3,7 @@ import { mediaSource } from "@/lib/media";
 import { notFound } from "next/navigation";
 import { ArrowUpRight, Check } from "lucide-react";
 import { publicData } from "@/lib/public-data-ar";
+import { SdlcFlow } from "@/components/sdlc-flow";
 export async function generateMetadata({
   params,
 }: {
@@ -94,6 +95,7 @@ export default async function Service({
           </p>
         )}
       </section>
+    <SdlcFlow compact ar />
     </main>
   );
 }

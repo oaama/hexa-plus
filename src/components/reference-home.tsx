@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 import { mediaSource } from "@/lib/media";
 import { Reveal } from "@/components/reveal";
+import { SdlcFlow } from "@/components/sdlc-flow";
 
 type Project = {
   id: string;
@@ -271,6 +272,10 @@ export function ReferenceHome({
             {t("View all projects", "عرض كل المشاريع")}
           </Link>
         </div>
+      </Reveal>
+
+      <Reveal className="rh-section rh-sdlc">
+        <SdlcFlow ar={ar} />
       </Reveal>
 
       <Reveal className="rh-cta">

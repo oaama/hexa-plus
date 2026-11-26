@@ -979,3 +979,140 @@
   border-radius: 999px;
   z-index: 2;
 }
+
+/* ================= Projects as swipeable tiles + SDLC flows (Nov 26, round 3) ================= */
+/* Horizontal snap-scroll carousels: tiles side by side, swipe like a ticker */
+.public-site .project-grid {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 20px;
+  padding: 6px 4px 20px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.public-site .project-grid::-webkit-scrollbar { display: none; }
+.public-site .project-grid > * {
+  flex: 0 0 min(78vw, 330px);
+  scroll-snap-align: start;
+}
+.public-site .project-grid .project-card { height: 100%; }
+.public-site .project-grid .project-visual {
+  height: auto;
+  aspect-ratio: 1 / 1;
+}
+.public-site .project-grid .project-visual img { width: 100%; height: 100%; object-fit: cover; }
+.public-site[dir="ltr"] .project-grid { mask-image: linear-gradient(to right, #000 92%, transparent 100%); }
+.public-site[dir="rtl"] .project-grid { mask-image: linear-gradient(to left, #000 92%, transparent 100%); }
+
+.rh-projects {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 18px;
+  padding: 6px 4px 20px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.rh-projects::-webkit-scrollbar { display: none; }
+.rh-projects > .rh-project {
+  flex: 0 0 min(76vw, 320px);
+  scroll-snap-align: start;
+}
+.rh-project-shot { aspect-ratio: 1 / 1; }
+.public-site[dir="ltr"] .rh-projects { mask-image: linear-gradient(to right, #000 92%, transparent 100%); }
+.public-site[dir="rtl"] .rh-projects { mask-image: linear-gradient(to left, #000 92%, transparent 100%); }
+
+/* Numbered flow steps with arrows (SDLC + case studies) */
+.flow-steps {
+  list-style: none;
+  margin: 0;
+  padding: 6px 4px 20px;
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 16px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.flow-steps::-webkit-scrollbar { display: none; }
+.flow-step {
+  position: relative;
+  flex: 0 0 min(62vw, 235px);
+  scroll-snap-align: start;
+  background: #fff;
+  border: 1px solid #e7eaf6;
+  border-radius: 18px;
+  padding: 20px 18px;
+  box-shadow: 0 14px 34px -20px rgb(2 15 58 / 0.22);
+}
+.flow-num {
+  display: block;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  color: #134fe9;
+  margin-bottom: 8px;
+}
+.flow-step h3 {
+  font-size: 17px;
+  font-weight: 800;
+  color: #0b1020;
+  margin: 0 0 6px;
+}
+.flow-step p {
+  font-size: 13.5px;
+  font-weight: 600;
+  line-height: 1.65;
+  color: #4b5679;
+  margin: 0;
+}
+.public-site[dir="ltr"] .flow-step:not(:last-child)::after,
+.public-site[dir="ltr"] .case-flow .detail-panel:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -15px;
+  width: 11px;
+  height: 11px;
+  border-top: 2.5px solid #134fe9;
+  border-right: 2.5px solid #134fe9;
+  transform: translateY(-50%) rotate(45deg);
+  z-index: 2;
+}
+.public-site[dir="rtl"] .flow-step:not(:last-child)::after,
+.public-site[dir="rtl"] .case-flow .detail-panel:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -15px;
+  width: 11px;
+  height: 11px;
+  border-top: 2.5px solid #134fe9;
+  border-left: 2.5px solid #134fe9;
+  transform: translateY(-50%) rotate(-45deg);
+  z-index: 2;
+}
+.sdlc { margin: 40px 0 8px; }
+.sdlc .section-heading { margin-bottom: 18px; }
+.rh-sdlc { padding-top: 0; }
+.rh-sdlc .sdlc { margin: 0; }
+.rh-sdlc .section-heading h2 { color: #020f3a; }
+
+/* Case study: challenge -> solution -> outcome as a numbered flow */
+.public-site .detail-columns.case-flow {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 18px;
+  padding: 6px 4px 20px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.public-site .detail-columns.case-flow::-webkit-scrollbar { display: none; }
+.public-site .case-flow .detail-panel {
+  flex: 0 0 min(80vw, 330px);
+  scroll-snap-align: start;
+  position: relative;
+}
+.public-site .case-flow .detail-panel .flow-num { margin-bottom: 4px; }
