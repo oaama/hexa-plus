@@ -1,0 +1,157 @@
+/* Palette sampled from the original supplied JPEG. No logo pixels are changed. */
+:root,
+.public-site {
+  --brand-blue: #134fe9;
+  --brand-violet: #7852ea;
+  --brand-purple: #5d41d7;
+  --brand-navy: #020f3a;
+  --brand-gradient: linear-gradient(
+    115deg,
+    #134fe9 0%,
+    #493de0 52%,
+    #7852ea 100%
+  );
+  --blue: #718fff;
+  --purple: #a48aff;
+}
+.public-site {
+  --blue: #134fe9;
+  --purple: #5d41d7;
+}
+::selection {
+  background: #7852ea66;
+  color: #fff;
+}
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline-color: #7852ea;
+}
+.primary-link,
+.public-site .primary-link,
+.agency-button.light,
+.agency-services-heading .agency-button,
+.public-site .nav-cta {
+  background: var(--brand-gradient);
+  color: #fff;
+  border-color: #7852ea66;
+  box-shadow: 0 7px 26px #493de01c;
+}
+.primary-link:hover,
+.public-site .primary-link:hover,
+.agency-button.light:hover,
+.public-site .nav-cta:hover {
+  background: linear-gradient(115deg, #1545c7, #6638d7);
+  color: #fff;
+}
+.agency-button.light > span,
+.agency-services-heading .agency-button > span {
+  background: #ffffff24;
+  color: #fff;
+}
+.public-site .brand-plus,
+.dashboard-brand .brand-plus,
+.agency-home .agency-hero h1 > .hero-outline {
+  color: #a695ff;
+  background: linear-gradient(110deg, #6896ff, #a283ff 78%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.headline-dot {
+  color: #9472ff;
+}
+.agency-hero {
+  background:
+    radial-gradient(ellipse at 80% 55%, #3c237520 0%, transparent 52%), #101115;
+}
+.hexa-motion {
+  filter: drop-shadow(0 12px 42px #5835d31c);
+}
+.hero-kicker i {
+  background: #9172ff;
+  box-shadow: 0 0 0 4px #7852ea20;
+}
+.hero-outline:after {
+  background: linear-gradient(90deg, #134fe9, #7852ea);
+}
+.agency-capabilities {
+  background: var(--brand-gradient);
+}
+.agency-capabilities h2 > span {
+  color: #e0d7ff;
+}
+.agency-capabilities .agency-section-top {
+  color: #e1deff;
+}
+.capability-ticker {
+  background: linear-gradient(100deg, #c3d3ff, #d8c9ff);
+  color: #20164d;
+  border-color: #b8a2f1;
+}
+.motion-live i {
+  background: #9a7eff;
+  box-shadow: 0 0 10px #7852ea50;
+}
+.public-site .filter-row .selected {
+  background: var(--brand-gradient);
+  border-color: transparent;
+  color: white;
+}
+.public-site input:focus,
+.public-site select:focus,
+.public-site textarea:focus {
+  border-color: #7852ea;
+  box-shadow: 0 0 0 3px #7852ea15;
+}
+.public-site .site-nav > a:not(.nav-cta):hover,
+.public-site .text-link:hover {
+  color: #a58bff;
+}
+.sidebar-link.active,
+.light .sidebar-link.active {
+  background: linear-gradient(110deg, #134fe92b, #7852ea30);
+  border-color: #7852ea55;
+  color: #c9c0ff;
+}
+.light .sidebar-link.active {
+  color: #4c35b6;
+}
+.sidebar-link.active svg {
+  color: #aa8eff;
+}
+.sidebar-link b,
+.notification-button i {
+  background: var(--brand-gradient);
+}
+.view-toggle button.active,
+.module-subnav .active {
+  background: linear-gradient(110deg, #134fe92d, #7852ea35);
+  border-color: #7852ea70;
+  color: #ccbeff;
+}
+.light .view-toggle button.active,
+.light .module-subnav .active {
+  color: #4c35b6;
+}
+.login-form-wrap {
+  background:
+    radial-gradient(ellipse at 90% 5%, #7852ea14, transparent 65%),
+    var(--surface);
+}
+@media (prefers-reduced-motion: reduce) {
+  .hexa-motion {
+    filter: none;
+  }
+}
+
+.public-site:has(.agency-home) .nav-cta {
+  background: var(--brand-gradient);
+  border-color: #7852ea66;
+  color: white;
+}
+.public-site:has(.agency-home) .nav-cta:hover {
+  background: linear-gradient(115deg, #1545c7, #6638d7);
+}
