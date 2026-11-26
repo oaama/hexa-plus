@@ -7,8 +7,8 @@ export function translateArabic(value: unknown): string {
     .map((line) => (copy as Record<string, string>)[line] || line)
     .join("\n");
 }
-export async function publicData() {
-  const data = await originalData();
+export async function publicData(opts?: { includeDrafts?: boolean }) {
+  const data = await originalData(opts);
   const settings: Record<string, string> = {};
   for (const [key, value] of Object.entries(data.settings)) {
     if (key.endsWith("_ar")) {

@@ -1,6 +1,6 @@
-import { supabase, configured } from "./supabase/server";
+import { supabase, configured, serviceClient } from "./supabase/server";
 import { serviceCatalog } from "./service-catalog";
-export async function publicData() {
+export async function publicData(opts?: { includeDrafts?: boolean }) {
   if (!configured())
     return {
       services: serviceCatalog,
@@ -12,12 +12,19 @@ export async function publicData() {
   const db = await supabase();
   const [s, p, t, w] = await Promise.all([
     db.from("published_services").select("*").order("sort_order"),
-    db
-      .from("published_portfolio")
-      .select(
-        "id,title,slug,client_name,category,industry,description,thumbnail_url,featured,title_ar,description_ar,category_ar,industry_ar,external_url",
-      )
-      .order("sort_order"),
+    opts?.includeDrafts
+      ? serviceClient()
+          .from("portfolio_projects")
+          .select(
+            "id,title,slug,client_name,category,industry,description,thumbnail_url,featured,title_ar,description_ar,category_ar,industry_ar,external_url,published",
+          )
+          .order("sort_order")
+      : db
+          .from("published_portfolio")
+          .select(
+            "id,title,slug,client_name,category,industry,description,thumbnail_url,featured,title_ar,description_ar,category_ar,industry_ar,external_url",
+          )
+          .order("sort_order"),
     db.from("published_testimonials").select("id,name,company,quote,quote_ar"),
     db.from("published_settings").select("key,value"),
   ]);

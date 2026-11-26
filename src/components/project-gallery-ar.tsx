@@ -12,6 +12,7 @@ type Project = {
   industry?: string;
   description?: string;
   thumbnail_url?: string;
+  published?: boolean;
 };
 export function ProjectGallery({ projects }: { projects: Project[] }) {
   const [filter, setFilter] = useState("الكل");
@@ -76,6 +77,9 @@ export function ProjectGallery({ projects }: { projects: Project[] }) {
                   <span className="project-open">
                     <ArrowUpRight />
                   </span>
+                  {p.published === false && (
+                    <span className="draft-badge">مسودة</span>
+                  )}
                 </div>
                 <span className="eyebrow">{p.category || "SELECTED WORK"}</span>
                 <h3>{p.title}</h3>

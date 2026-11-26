@@ -2,8 +2,13 @@ import { publicData } from "@/lib/public-data-ar";
 import { ProjectGallery } from "@/components/project-gallery-ar";
 import { mediaSource } from "@/lib/media";
 export const metadata = { title: "أعمالنا" };
-export default async function Portfolio() {
-  const { portfolio } = await publicData();
+export default async function Portfolio({
+  searchParams,
+}: {
+  searchParams: Promise<{ preview?: string }>;
+}) {
+  const { preview } = await searchParams;
+  const { portfolio } = await publicData({ includeDrafts: preview === "drafts" });
   const shots = portfolio.filter((p) => p.thumbnail_url).slice(0, 5);
   return (
     <main id="main" className="section-wrap page-main">

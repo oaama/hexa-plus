@@ -1,7 +1,7 @@
 import { mediaSource } from "@/lib/media";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { supabase } from "@/lib/supabase/server";
+import { supabase, serviceClient } from "@/lib/supabase/server";
 import type { Metadata } from "next";
 export async function generateMetadata({
   params,
@@ -31,16 +31,29 @@ export async function generateMetadata({
 }
 export default async function CaseStudy({
   params,
+  searchParams,
 }: {
   params: Promise<{ slug: string }>;
+  searchParams: Promise<{ preview?: string }>;
 }) {
   const { slug } = await params;
+  const { preview } = await searchParams;
   const db = await supabase();
-  const { data: raw } = await db
+  let { data: raw } = await db
     .from("published_portfolio")
     .select("*")
     .eq("slug", slug)
     .single();
+  let mediaTable = "published_portfolio_media";
+  if (!raw && preview === "drafts") {
+    const draft = await serviceClient()
+      .from("portfolio_projects")
+      .select("*")
+      .eq("slug", slug)
+      .single();
+    raw = draft.data;
+    mediaTable = "portfolio_media";
+  }
   if (!raw) notFound();
   const p = {
     ...raw,
@@ -53,8 +66,8 @@ export default async function CaseStudy({
     results: raw.results_ar || raw.results,
     services_provided: raw.services_provided_ar || raw.services_provided,
   };
-  const { data: media } = await db
-    .from("published_portfolio_media")
+  const { data: media } = await (mediaTable === "portfolio_media" ? serviceClient() : db)
+    .from(mediaTable)
     .select("*")
     .eq("portfolio_project_id", p.id)
     .order("sort_order");
